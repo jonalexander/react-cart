@@ -1,13 +1,19 @@
-# react cart
+# React Cart
 
-Simple shopping cart built with React as a refresher for building React components and testing. 
+Simple shopping cart built with React as a refresher for building React components and testing.
 
 ## Download & install
-```git clone https://github.com/jonalexander/react-cart
-npm install```
+```bash
+git clone https://github.com/jonalexander/react-cart
+npm install
+```
 
 ## Run
-```npm start```
+```bash
+npm start
+```
 
 ## Build
-```npm run build```
+```bash
+npm run build
+```
