@@ -14,3 +14,4 @@ build
 .env
 npm-debug.log
 notes.md
+developer_notes.md
