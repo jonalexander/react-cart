@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
-import Item from '../models/Item';
 import InventoryRow from './InventoryRow'
 
 class InventoryContainer extends Component {
   constructor() {
     super()
-    this.state = {
-      inventory: [
-        new Item(0, 'Milk', 3.99, 10),
-        new Item(1, 'Eggs', 5.00, 20),
-        new Item(2, 'Beer', 12.50, 25)
-      ]
-    }
-
     this.getTableHeaders = this.getTableHeaders.bind(this)
     this.getRows = this.getRows.bind(this)
   }
 
   getTableHeaders() {
     return (
+      // generate static table column headers for inventory table
       <div className="row">
         <div className="cell"> Item Name </div>
         <div className="cell"> Price </div>
@@ -29,13 +21,15 @@ class InventoryContainer extends Component {
   }
 
   getRows() {
+    // set unique key for each inventory row
     var uniqueId = 0
 
-    return this.state.inventory.map((inventoryItem) => {
+    // iterate through each item in inventory and generate an inventory row component & pass down data
+    return this.props.inventory.map((inventoryItem) => {
       return <InventoryRow key={ uniqueId++ }
                            name={ inventoryItem.name }
                            price={ inventoryItem.price }
-                           quantity={ inventoryItem.quantity }
+                           quantity={ inventoryItem.qty }
               />
     })
   }
@@ -43,7 +37,6 @@ class InventoryContainer extends Component {
   render() {
     return (
       <div id="container">
-        <h2> Inventory </h2>
         { this.getTableHeaders() }
         { this.getRows()  }
       </div>
