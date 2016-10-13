@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import InventoryContainer from './components/InventoryContainer'
-import Item from './models/Item';
+import Table from './components/Table'
 import logo from './assets/logo.svg';
 import './assets/App.css';
 
@@ -21,10 +20,14 @@ class App extends Component {
         {id: 1, name: 'Eggs', price: 5.00, qty: 20},
         {id: 2, name: 'Beer', price: 12.50, qty: 25}
       ],
-      cart: []
+      cart: [
+        {id: 0, name: 'Milk', price: 3.99, qty: 2},
+        {id: 1, name: 'Eggs', price: 5.00, qty: 1},
+        {id: 2, name: 'Beer', price: 12.50, qty: 1}
+      ]
     }
-    this.addItemToCart = this.addItemToCart.bind(this)
   }
+
 
 
   render() {
@@ -32,20 +35,17 @@ class App extends Component {
       <div className="App">
 
         <div className="App-header">
-
           <img src={ logo } className="App-logo" alt="logo" />
           <h1> React Cart </h1>
-
         </div>
 
         <div className="App-body">
-
-          <h2> Inventory </h2>
-          <InventoryContainer inventory={ this.state.inventory }/>
-
-          <h2> Cart </h2>
-
-
+          <Table data={ this.state.inventory }
+                 type={ 'inventory'}
+                />
+          <Table data={ this.state.cart }
+                 type={ 'cart' }
+                 />
         </div>
 
       </div>
