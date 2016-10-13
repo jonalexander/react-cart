@@ -4,6 +4,8 @@ import Item from './models/Item';
 import logo from './assets/logo.svg';
 import './assets/App.css';
 
+var update = require('react-addons-update');
+
 
 class App extends Component {
   // house the state in App because the inventory container will need to communicate changes that will change the state of the cart container
@@ -24,13 +26,6 @@ class App extends Component {
     this.addItemToCart = this.addItemToCart.bind(this)
   }
 
-  // trigger this method when clicking 'add' button on inventory table
-  addItemToCart(id) {
-    var item = this.state.inventory.find( (item) => {
-      return item.id === id
-    })
-
-  }
 
   render() {
     return (
